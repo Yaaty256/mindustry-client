@@ -253,7 +253,11 @@ val ByteBuffer.instant get() = long.toInstant()
 
 fun pixmapFromClipboard(): Pixmap? {
     try {
-        val tkClass = Class.forName("java.awt.Toolkit")
+        val tkClass = try {
+            Class.forName("java.awt.Toolkit")
+        } catch (e: ClassNotFoundException) {
+            ClassLoader.getSystemClassLoader().loadClass("java.awt.Toolkit")
+        }
         val tk = tkClass.getMethod("getDefaultToolkit").invoke(null)
 
         val clipboard = tkClass.getMethod("getSystemClipboard").invoke(tk)
@@ -294,6 +298,9 @@ fun pixmapFromClipboard(): Pixmap? {
 
         return Pixmap(buffer, width, height)
     } catch (e: Exception) {
+        Log.info(e.message)
+        Log.info(e.printStackTrace())
+        Log.info(e.stackTraceToString())
         return null
     }
 }

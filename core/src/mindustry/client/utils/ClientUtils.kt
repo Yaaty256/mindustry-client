@@ -298,9 +298,6 @@ fun pixmapFromClipboard(): Pixmap? {
 
         return Pixmap(buffer, width, height)
     } catch (e: Exception) {
-        Log.info(e.message)
-        Log.info(e.printStackTrace())
-        Log.info(e.stackTraceToString())
         return null
     }
 }

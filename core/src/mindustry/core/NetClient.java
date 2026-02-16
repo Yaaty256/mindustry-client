@@ -18,6 +18,7 @@ import mindustry.client.*;
 import mindustry.client.communication.*;
 import mindustry.client.ui.*;
 import mindustry.client.utils.*;
+import mindustry.content.*;
 import mindustry.core.GameState.*;
 import mindustry.entities.*;
 import mindustry.entities.units.*;

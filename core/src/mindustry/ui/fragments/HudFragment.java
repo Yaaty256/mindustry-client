@@ -416,7 +416,7 @@ public class HudFragment{
                     .name("schematics");
 
                     select.button(Icon.pause, style, () -> {
-                        if(net.active()){
+                        if(net.active() || state.rules.pauseDisabled){
                             ui.listfrag.toggle();
                         }else if(!state.rules.pauseDisabled){
                             state.set(state.isPaused() ? State.playing : State.paused);

@@ -362,13 +362,6 @@ public class Turret extends ReloadTurret{
         }
 
         @Override
-        public BlockStatus status(){
-            if(enabled && !hasAmmo()) return BlockStatus.noInput;
-
-            return super.status();
-        }
-
-        @Override
         public boolean canControl(){
             return playerControllable;
         }
